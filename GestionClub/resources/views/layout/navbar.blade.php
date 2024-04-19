@@ -27,15 +27,28 @@
                         <i class="fas fa-users"></i> Membres
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @auth
+
+                            <li><a class="dropdown-item  bi bi-person-fill"
+                                   href="{{ route('users.edit', \Illuminate\Support\Facades\Auth::user()) }}">Profil</a>
+                            </li>
+
+                            @if(Auth::user()->admin)
+                                {{--                                <form action="{{ route('dashboard') }}" method="post">--}}
+                                {{--                                    @csrf--}}
+                                {{--                                    <button type="submit" class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</button>--}}
+                                {{--                                </form>--}}
+                                <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                            @endif
+                        @endauth
+
                         <li><a class="dropdown-item" href="/login"><i class="fas fa-sign-in"></i> Connexion </a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profil</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Préférences</a></li>
-                        <div class="dropdown-divider"></div>
-                        <li class="dropdown">
-                            <a class="dropdown-item" href="#" id="logoutDropdown" role="button"
+                        <li><a class="dropdown-item" href="#" id="logoutDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-sign-out-alt"></i> Déconnexion
-                            </a>
+                            </a></li>
+                        <li class="dropdown">
+
                             <ul class="dropdown-menu" aria-labelledby="logoutDropdown">
                                 <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
                             </ul>

@@ -14,12 +14,12 @@ adhérents')">
     <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
 </head>
 <body>
-@include('layouts.navbar')
-@include('layouts.header')
+@include('layout.navbar')
+@include('layout.header')
 <div class="container">
     @yield('content')
 </div>
-@include('layouts.footer')
+@include('layout.footer')
 @yield('script')
 {{--<script src="/js/app.js"></script>--}}
 <script src="{{ asset('js/app.js') }}" defer></script>

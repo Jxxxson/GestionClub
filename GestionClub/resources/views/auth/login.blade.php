@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layout.master')
 @section('content')
     <x-guest-layout>
         <div class="container mt-5">
